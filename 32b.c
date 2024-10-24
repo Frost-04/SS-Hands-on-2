@@ -19,8 +19,8 @@ Date: 20th Sept, 2024.
 #include <unistd.h>
 
 typedef union semun {
-    int val;               // Value of the semaphore
-    struct semid_ds *buf;  // Buffer for IPC_STAT, IPC_SET
+    int val;               
+    struct semid_ds *buf; 
     unsigned short *array; // Array for GETALL, SETALL
 } semun;
 

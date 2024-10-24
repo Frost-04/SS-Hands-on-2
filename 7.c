@@ -42,4 +42,7 @@ void main()
         _exit(1);
     }
 
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    pthread_join(thread3, NULL);
 }

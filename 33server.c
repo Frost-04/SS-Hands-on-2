@@ -18,7 +18,7 @@ void main()
     int socktd = socket(AF_INET, SOCK_STREAM, 0);
     if (socktd == -1)
     {
-        perror("Erroe when creating socket");
+        perror("Error when creating socket");
     }
     printf("server Socket created\n");
 

@@ -13,7 +13,7 @@ Date: 17th Sept, 2024.
 #include <unistd.h>
 
 // Function to handle SIGINT and ignore it
-void ignore_sigint(int sig) {
+void ignore_sigint() {
     printf("SIGINT ignored! Press Ctrl+C again to reset the default action.\n");
 }
 

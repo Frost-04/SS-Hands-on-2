@@ -31,7 +31,6 @@ int main() {
 
     struct msqid_ds buf;
 
-    // Get current permissions
     if (msgctl(msgid, IPC_STAT, &buf) == -1) {
         perror("msgctl failed");
         return 1;

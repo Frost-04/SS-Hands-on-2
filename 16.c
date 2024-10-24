@@ -34,7 +34,7 @@ int main() {
     if (cpid == 0) {
         close(ptc[1]);
         close(ctp[0]);
-
+        sleep(5);
         printf("Child: Receiving message from parent...\n");
         while (read(ptc[0], &ch, 1) > 0)
             write(1, &ch, 1);
@@ -54,7 +54,7 @@ int main() {
 
         write(ptc[1], p_msg, strlen(p_msg));
         close(ptc[1]);
-
+        sleep(5);
         printf("Parent: Receiving message from child...\n");
         while (read(ctp[0], &ch, 1) > 0)
             write(1, &ch, 1);

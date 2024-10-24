@@ -11,6 +11,8 @@ Date: 17th Sept, 2024.
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdint.h>
 void* print(void* thread_id)
 {
     long tid = (long) thread_id; 
@@ -24,7 +26,7 @@ void main()
     int t;
     int pstatus;
     t=1;
-    pstatus = pthread_create(&thread1, NULL, print, (void*) t);
+    pstatus = pthread_create(&thread1, NULL, print, (void*)(intptr_t) t);
     if (pstatus != 0)
     {
         perror("Error while creating thread");
@@ -32,18 +34,21 @@ void main()
     }
 
     t=2;
-    pstatus = pthread_create(&thread2, NULL, print, (void*) t);
+    pstatus = pthread_create(&thread2, NULL, print, (void*)(intptr_t) t);
     if (pstatus != 0)
     {
         perror("Error while creating thread");
         _exit(1);
     }
     t=3;
-    pstatus = pthread_create(&thread2, NULL, print, (void*) t);
+    pstatus = pthread_create(&thread3, NULL, print, (void*)(intptr_t) t);
     if (pstatus != 0)
     {
         perror("Error while creating thread");
         _exit(1);
     }
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    pthread_join(thread3, NULL);
 
 }

@@ -42,7 +42,7 @@ void main()
     printf("Connection with server established\n");
 
     char buf[100];
-    // read fron server
+    // read from server
     read(socktd, buf, 100);
     printf("Data from server: %s\n", buf);
 

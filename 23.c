@@ -18,13 +18,13 @@ int main() {
     long maxFiles;
     char *s = "./myfifo";
 
-    mkfifo(s, 0777);  // Create FIFO with full permissions
+    mkfifo(s, 0777);
 
-    maxFiles = sysconf(_SC_OPEN_MAX);  // Get maximum number of open files
+    maxFiles = sysconf(_SC_OPEN_MAX);  // maximum number of open files
 
     printf("Maximum number of files that can be opened: %ld\n", maxFiles);
     
-    printf("Maximum size of pipe: %d\n", PIPE_BUF);  // Print the maximum size of the pipe
+    printf("Maximum size of pipe: %d\n", PIPE_BUF); 
 
     return 0;
 }

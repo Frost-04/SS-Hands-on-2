@@ -36,7 +36,6 @@ int main() {
         return 1;
     }
 
-    // Structure to hold message queue data
     struct msqid_ds buf;
 
     // Get message queue details

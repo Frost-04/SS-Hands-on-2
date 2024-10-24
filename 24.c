@@ -24,7 +24,6 @@ int main() {
     key_t key = ftok(".", 1);
     printf("Generated key: %d\n", key);
 
-    // Create message queue
     int msgid = msgget(key, 0666 | IPC_CREAT);
     printf("Message queue ID: %d\n", msgid);
 

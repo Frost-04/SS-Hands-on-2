@@ -36,6 +36,7 @@ int main() {
         dup(pipefd[1]);  // Duplicate pipe write end to stdout
         execlp("ls", "ls", "-l", NULL);  // Execute 'ls -l'
     } else {
+        usleep(10);
         close(pipefd[1]);
         close(0);  // Close stdin
         dup(pipefd[0]);  // Duplicate pipe read end to stdin

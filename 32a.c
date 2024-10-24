@@ -20,8 +20,8 @@ Date: 20th Sept, 2024.
 #include <sys/sem.h>
 
 typedef union semun {
-    int val;                   // Value for setting semaphore
-    struct semid_ds *buf;      // Data structure for semaphore info
+    int val;                  
+    struct semid_ds *buf;
     unsigned short int *array; // Array for GETALL, SETALL
 } semun;
 
@@ -35,7 +35,7 @@ int main() {
     }
 
     arg.val = 1; // Initialize binary semaphore
-    semctl(semid, 0, SETVAL, arg); // Set initial value
+    semctl(semid, 0, SETVAL, arg);
 
     struct sembuf sem_op;
     sem_op.sem_num = 0; // Semaphore number
@@ -49,7 +49,7 @@ int main() {
 
     // Critical section
     printf("Inside critical section...press enter to continue\n");
-    getchar(); // Pause for demonstration
+    getchar();
 
     int data;
     int fd = open("./ticket.txt", O_RDWR | O_CREAT, S_IRWXU);
@@ -60,7 +60,7 @@ int main() {
 
     int n = read(fd, &data, sizeof(data));
     if (n == 0) {
-        data = 1; // If file is empty, start with ticket number 1
+        data = 1;
     } else {
         data += 1; // Increment ticket number
         lseek(fd, 0, SEEK_SET); // Reset file pointer
